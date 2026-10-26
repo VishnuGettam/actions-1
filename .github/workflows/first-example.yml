@@ -16,3 +16,6 @@ jobs:
             echo "Hello from " - $(hostname)
             ls -ltra
             cat README.md 
+
+         - name: Generate ASCII Artwork
+           run: cowsay -f dragon "Run for cover, Iam a DRAGON...RAWR" >> dragon.txt

@@ -12,13 +12,16 @@ jobs:
               run: |
                 sudo apt-get install cowsay -y
                 cowsay -f dragon "Run for cover, I am a Dragon...Rawr" >> dragon.txt
+                pwd
     validate:
         name: validate the file
         needs: build
         runs-on: ubuntu-latest
         steps:
             - name: "validate the file"
-              run: ls -ltr | grep 'dragon.txt'
+              run: |
+               pwd  
+               ls -ltr | grep 'dragon.txt'
     deploy:
         name: run the dragon.txt file
         needs: validate

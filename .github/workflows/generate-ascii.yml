@@ -16,8 +16,7 @@ jobs:
             ls -ltra
             pwd
             whoami
-            chmod +x ./ascii-script.sh
-            
+            chmod +x ./ascii-script.sh            
 
         - name: execute ascii-script.sh
           run: ./ascii-script.sh

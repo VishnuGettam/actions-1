@@ -10,9 +10,9 @@ jobs:
       steps:
          - name: Checkout Repo
            uses: actions/checkout@v6
-           
+
          - name: Welcome message
-           run: echo "Hello from Ubuntu Github Runner"
+           run: echo "Hello from " - $(hostname)
 
          - name: List files
            run: ls 

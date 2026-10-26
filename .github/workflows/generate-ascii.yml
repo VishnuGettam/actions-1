@@ -12,7 +12,12 @@ jobs:
           uses: actions/checkout@v6
         
         - name: List the files in repo
-          run: ls -ltra
+          run: |
+            ls -ltra
+            pwd
+            whoami
+            chmod 600 ./ascii-script.sh
+            
 
         - name: execute ascii-script.sh
           run: ./ascii-script.sh

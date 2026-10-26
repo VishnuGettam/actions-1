@@ -5,14 +5,14 @@ on: [push]
 
 jobs:
    first_job:
+      name: First_Job
       runs-on: ubuntu-latest
       steps:
          - name: Welcome message
-           run: echo $(hostname -f)
+           run: echo "Hello from Ubuntu Github Runner"
 
          - name: List files
            run: ls 
         
          - name: Readfile
            run: cat README.md
-

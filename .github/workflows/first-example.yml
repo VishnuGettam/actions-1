@@ -8,6 +8,9 @@ jobs:
       name: First_Job
       runs-on: ubuntu-latest
       steps:
+         - name: Checkout Repo
+           uses: actions/checkout@v6
+           
          - name: Welcome message
            run: echo "Hello from Ubuntu Github Runner"
 

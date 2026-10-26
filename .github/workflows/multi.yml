@@ -13,15 +13,24 @@ jobs:
               run: |
                 sudo apt-get install cowsay -y
                 cowsay -f dragon "Run for cover, I am a Dragon...Rawr" >> dragon.txt  
+            - name: "Upload Dragon text file"
+              uses: actions/upload-artifact@v3
+              with:
+                name: dragon.txt
+                path: dragon.txt
     # validate the file availability
     validate:
         name: validate the file
         needs: build
         runs-on: ubuntu-latest
         steps:
+            - name: "Download Dragon text file"
+              uses: actions/download-artifact@v3
+              with:
+                name: dragon.txt 
+
             - name: "validate the file"
-              run: |
-               pwd  
+              run: |                 
                grep -i 'dragon' dragon.txt
     # read the file
     deploy:
@@ -29,5 +38,10 @@ jobs:
         needs: validate
         runs-on: ubuntu-latest
         steps:
+            - name: "Download Dragon text file"
+              uses: actions/download-artifact@v3
+              with:
+                name: dragon.txt 
+                
             - name: "Read file"
               run: cat dragon.txt 
